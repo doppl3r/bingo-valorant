@@ -1,3 +1,8 @@
+function setBackground() {
+    var index = Math.floor(Math.random() * window.background.length);
+    $("body").css("background-image", "url('img/" + window.background[index] + "')");
+}
+
 function loadJSON() {
     var url  = 'json/card.json?nocache=' + (new Date()).getTime();
     $.ajax({
@@ -5,6 +10,8 @@ function loadJSON() {
         method: 'GET',
         success: function(response) {
             window.card = response.card;
+            window.background = response.background;
+            setBackground();
             shuffleCard();
             sliceCard();
             renderCard();

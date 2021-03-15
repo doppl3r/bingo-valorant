@@ -30,6 +30,7 @@
         "Get 13-0'd",
         "Get coached during clutch",
         "Terrible map call",
+        "Terrible mic",
         "Blowing a lead",
         "Steals agent you are hovering",
         "Whole team over rotates",
@@ -37,5 +38,19 @@
         "Girl gamer",
         "Hackusation",
         "Triple double score"
+    ],
+    "background": [
+        "background.jpg",
+        "1085886.jpg",
+        "1125084.jpg",
+        "1135158.jpg",
+        "1080942.jpg",
+        "1102034.jpg",
+        "1072679.jpg",
+        "1080939.jpg",
+        "1080940.jpg",
+        "1080938.jpg",
+        "1126549.jpg",
+        "1078458.jpg"
     ]
 }
