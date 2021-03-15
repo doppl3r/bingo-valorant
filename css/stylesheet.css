@@ -1,5 +1,5 @@
 *, *:before, *:after { box-sizing: border-box; /* transition: all 0.1s ease-in-out; */ }
-body { background-color: #0f1923; background-size: cover; background-position: center; user-select: none; margin: 0; padding: 0; font-family: 'Oswald', sans-serif; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); font-size: 3vmin; color: #fff; position: relative; overflow: hidden; }
+body { background-color: #0f1923; background-size: cover; background-position: center; user-select: none; margin: 0; padding: 0; font-family: 'oswald_regularregular', sans-serif; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25); font-size: 3vmin; color: #fff; position: relative; overflow: hidden; }
 body:before { content: ''; width: 100%; height: 100%; left: 0; top: 0; background-color: rgba(15, 25, 35, 0.75); position: absolute; }
 body .card { display: flex; flex-wrap: wrap; height: 100vh; width: 100vw; padding: 4px; animation: fadeIn 1s ease-in; animation-fill-mode: forwards; }
 body .card .box { width: 20%; padding: 4px; position: relative; }
@@ -10,4 +10,14 @@ body .card .box span:hover { border-color: #ff4654; }
 body .card .box span:after { content: ''; opacity: 0; position: absolute; left: 0; top: 0; width: 0; height: 0; border-style: solid; border-width: 16px 16px 0 0; border-color: #ff4655 transparent transparent transparent; }
 body .card .box span:hover:after { opacity: 1; }
 
+/* Animations */
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+/* Font families */
+@font-face {
+    font-family: 'oswald_regularregular';
+    src: url('../fonts/oswald-regular.woff2') format('woff2'),
+         url('../fonts/oswald-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
