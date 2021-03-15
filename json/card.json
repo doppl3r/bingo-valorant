@@ -5,12 +5,13 @@
         "Derank",
         "Get 13-0'd",
         "Get 3k with Op",
+        "Get carried by a kid",
         "Get clutched",
         "Get coached during clutch",
         "Get flashed 3 times",
         "Get killed by knife",
-        "Get team flashed",
-        "Get wall banged by Odin",
+        "Get team-flashed",
+        "Get wall-banged by Odin",
         "Girl gamer",
         "Hackusation",
         "Kill AFK player",
@@ -21,7 +22,7 @@
         "Queue the same map",
         "Racism",
         "Rank up",
-        "Solo clutch round",
+        "Solo-clutch round",
         "Steals agent you are hovering",
         "Survive Brimstone ult",
         "Survive Raze ult",
@@ -39,7 +40,7 @@
         "Triple double score",
         "Win 1v1",
         "Win pistol round",
-        "Whole team over rotates"
+        "Whole team over-rotates"
     ],
     "background": [
         "background.jpg",
