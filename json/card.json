@@ -3,7 +3,6 @@
         "Ace",
         "Ruin a lead",
         "Derank",
-        "Get 13-0'd",
         "Get 3k with Op",
         "Get carried by a kid",
         "Get clutched",
@@ -17,6 +16,7 @@
         "Kill AFK player",
         "Lose 1v1",
         "Lose 5 in a row",
+        "Lose every round",
         "Lose pistol round",
         "No pug mics",
         "Queue the same map",
@@ -39,6 +39,7 @@
         "Terrible mic",
         "Triple double score",
         "Win 1v1",
+        "Win every round",
         "Win pistol round",
         "Whole team over-rotates"
     ],
