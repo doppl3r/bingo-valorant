@@ -4,12 +4,13 @@ body:before { content: ''; width: 100%; height: 100%; left: 0; top: 0; backgroun
 body .card { display: flex; flex-wrap: wrap; height: 100vh; width: 100vw; padding: 4px; animation: fadeIn 1s ease-in; animation-fill-mode: forwards; }
 body .card .box { width: 20%; padding: 4px; position: relative; }
 body .card .box input { position: absolute; opacity: 0; }
-body .card .box input:checked ~ span { background-color: rgba(38, 184, 148, 0.4); border-color: rgba(38, 184, 148, 1); }
-body .card .box span { background-color: rgba(255, 255, 255, 0.05); border: 3px solid transparent; cursor: pointer; position: absolute; left: 4px; top: 4px; width: calc(100% - 8px); height: calc(100% - 8px); display: flex; justify-content: center; align-items: center; padding: 8px; text-align: center; }
-body .card .box span:hover { background-color: rgba(38, 184, 148, 1) !important; }
+body .card .box input:checked ~ span { background-color: rgba(63, 199, 149, 0.4); border-color: rgba(63, 199, 149, 1); }
+body .card .box span { background-color: rgba(255, 255, 255, 0.1); border: 2px solid transparent; cursor: pointer; position: absolute; left: 4px; top: 4px; width: calc(100% - 8px); height: calc(100% - 8px); display: flex; justify-content: center; align-items: center; padding: 8px; text-align: center; }
+body .card .box span:hover, body .card .box input:checked ~ span:hover { background-color: rgba(63, 199, 149, 1); animation: highlightBorder 0.25s ease-in; animation-fill-mode: forwards; }
 
 /* Animations */
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes highlightBorder { 0% { border-color: rgba(255, 255, 255, 0.75); } 100% { border-color: rgba(255, 255, 255, 0); } }
 
 /* Font families */
 @font-face {
