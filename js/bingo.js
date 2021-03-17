@@ -10,11 +10,13 @@ function loadJSON() {
         method: 'GET',
         success: function(response) {
             window.card = response.card;
+            window.options = response.card;
             window.background = response.background;
             setBackground();
             shuffleCard();
             sliceCard();
             renderCard();
+            updatePopup();
             setFreeCard();
         }
     });
@@ -38,6 +40,22 @@ function renderCard() {
             '</label>'
         );
     }
+}
+
+function updatePopup() {
+    var popup = $('.popup');
+    var popupButton = $('.popup-button');
+    popupButton.off();
+    popup.find('.popup-close').off();
+    popup.html(
+        '<div class="background popup-close"></div>' +
+        '<ul><li>Want to see more?<br>Message me on Twitter <a href="https://twitter.com/doppl3r" target="_blank">@doppl3r</a><br><br></li></ul>'
+    );
+    window.options.sort();
+    for (var i = 0; i < window.options.length; i++) { popup.find('ul').append('<li>- ' + window.options[i] + '</li>'); }
+    popupButton.on('click', function(e) { e.preventDefault(); popup.toggleClass('active'); });
+    popup.find('.popup-close').on('click', function(e) { e.preventDefault(); popup.removeClass('active'); });
+
 }
 
 function setFreeCard() {
