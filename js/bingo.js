@@ -16,7 +16,7 @@ function loadJSON() {
             shuffleCard();
             sliceCard();
             renderCard();
-            updatePopup();
+            addPopup();
             setFreeCard();
         }
     });
@@ -42,20 +42,25 @@ function renderCard() {
     }
 }
 
-function updatePopup() {
+function addPopup() {
     var popup = $('.popup');
     var popupButton = $('.popup-button');
-    popupButton.off();
-    popup.find('.popup-close').off();
     popup.html(
         '<div class="background popup-close"></div>' +
-        '<ul><li>Want to see more?<br>Message me on Twitter <a href="https://twitter.com/doppl3r" target="_blank">@doppl3r</a><br><br></li></ul>'
+        '<ul><li>Request a new option:<br><form class="new-option"><input name="option" maxlength="32" placeholder="New option"><button name="submit">Send</button></form><br></li></ul>'
     );
     window.options.sort();
     for (var i = 0; i < window.options.length; i++) { popup.find('ul').append('<li>- ' + window.options[i] + '</li>'); }
+    
+    // Add form listeners
     popupButton.on('click', function(e) { e.preventDefault(); popup.toggleClass('active'); });
     popup.find('.popup-close').on('click', function(e) { e.preventDefault(); popup.removeClass('active'); });
-
+    popup.find('.new-option').on('submit', function(e) {
+        e.preventDefault();
+        var input = $('.popup').find('input[name="option"]');
+        var link = 'https://twitter.com/intent/tweet?text=@doppl3r%20Valorant%20Bingo%20idea: ' + input.val();
+        window.open(link, '_blank');
+    });
 }
 
 function setFreeCard() {
