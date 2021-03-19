@@ -16,7 +16,7 @@ body .card .box input:checked ~ span { background-color: rgba(63, 199, 149, 0.4)
 body .card .box span { background-color: rgba(255, 255, 255, 0.1); border: 2px solid transparent; cursor: pointer; position: absolute; left: 4px; top: 4px; width: calc(100% - 8px); height: calc(100% - 8px); display: flex; justify-content: center; align-items: center; padding: 8px; text-align: center; }
 body .card .box span:hover, body .card .box input:checked ~ span:hover { background-color: rgba(63, 199, 149, 1); animation: highlightBorder 0.25s ease-in; animation-fill-mode: forwards; }
 body .popup { display: flex; align-items: center; justify-content: center; position: absolute; left: 0; top: 0; width: 100vw; height: 100vh; z-index: 1; }
-body .popup .background { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(15, 25, 35, 0.9); }
+body .popup .background { position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(15, 25, 35, 0.95); }
 body .popup .background:before { content: 'x'; font-size: 200%; position: absolute; top: 0; right: 0; width: 12.5vh; height: 12.5vh; display: flex; align-items: center; justify-content: center; cursor: pointer; }
 body .popup.active { display: flex !important; }
 body .popup ul { background-color: rgba(255, 255, 255, 0.1); display: inline-block; height: 75vh; overflow-y: scroll; padding: 32px; position: relative; z-index: 1; text-decoration: none; list-style: none; }
