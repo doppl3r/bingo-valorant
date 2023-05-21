@@ -46,15 +46,16 @@ function addPopup() {
     var popup = $('.popup');
     var popupButton = $('.popup-button');
     popup.html(
-        '<div class="background popup-close"></div>' +
-        '<ul><li>Request a new option:<br><form class="new-option"><input name="option" maxlength="32" placeholder="New option"><button name="submit">Send</button></form><br></li></ul>'
+        '<div class="background popup-close"></div><ul class="list"></ul>'
     );
     window.options.sort();
-    for (var i = 0; i < window.options.length; i++) { popup.find('ul').append('<li>- ' + window.options[i] + '</li>'); }
+    for (var i = 0; i < window.options.length; i++) { popup.find('.list').append('<li>- ' + window.options[i] + '</li>'); }
     
     // Add form listeners
     popupButton.on('click', function(e) { e.preventDefault(); popup.toggleClass('active'); });
     popup.find('.popup-close').on('click', function(e) { e.preventDefault(); popup.removeClass('active'); });
+    
+    // DEPRECATED - Twitter dumb
     popup.find('.new-option').on('submit', function(e) {
         e.preventDefault();
         var input = $('.popup').find('input[name="option"]');
