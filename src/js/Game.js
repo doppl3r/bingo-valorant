@@ -9,7 +9,10 @@ class Game {
 
   getRandomBackground() {
     var index = Math.floor(Math.random() * this.images.backgrounds.length);
-    return this.images.backgrounds[index];
+    var image = this.images.backgrounds[index];
+    if (this.background == image) return this.getRandomBackground();
+    this.background = image;
+    return image;
   }
 
   getAllOptions() {

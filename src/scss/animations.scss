@@ -1,3 +1,13 @@
 /* Animations */
-@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes highlightBorder { 0% { border-color: rgba(255, 255, 255, 0.75); } 100% { border-color: rgba(255, 255, 255, 0); } }
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(10%); }
+    100% { opacity: 1; transform: translateY(0%); }
+}
+@keyframes highlightBorder {
+    0% { border-color: rgba(255, 255, 255, 0.75); }
+    100% { border-color: rgba(255, 255, 255, 0); }
+}

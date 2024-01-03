@@ -1,44 +1,61 @@
 <script setup>
   import '../scss/style.scss';
   import { Game } from '../js/Game.js';
-  import { ref } from 'vue';
+  import { ref, onMounted } from 'vue';
 
   // Initialize game
+  var version = ref('');
   var game = window.game = new Game();
-  var background = ref('');
-  var options = ref([]);
-  var popup = ref({
-    active: false,
-    options: []
-  })
+  var background = ref({ key: 0, url: '' });
+  var card = ref({ key: 0, options: [] });
+  var popup = ref({ active: false, options: [] })
 
   function loadOptions() {
     // Update refs from game values
-    background.value = game.getRandomBackground();
-    options.value = game.getNewOptions()
+    background.value.url = './img/' + game.getRandomBackground();
+    background.value.key++; // Force Vue refresh
+    card.value.options = game.getNewOptions();
+    card.value.key++; // Force Vue refresh
     popup.value.options = game.getAllOptions();
   }
 
-  loadOptions();
+  onMounted(async function() {
+    const response = await fetch("./manifest.json");
+    const manifest = await response.json();
+    version.value = 'v' + manifest.version;
+    loadOptions();
+	});
+
 </script>
 
 <template>
-  <div class="background" :style="{ 'background-image': 'url(/img/' + background + ')' }">
-    <nav>
-      <ul>
-        <li class="logo"><span>Valorant Bingo<a href="https://dopplercreative.com" target="_blank">By Doppler Creative</a></span></li>
-        <li><a class="popup-button" @click="popup.active = !popup.active">View options</a></li>
-        <li><a class="button" @click="loadOptions">Generate new card</a></li>
-      </ul>
-    </nav>
-    <div class="card">
-      <label v-for="(option, index) of options" class="box">
-        <input type="checkbox" :checked="option == 'Freebie'">
-        <span>{{ option }}</span>
-      </label>
-    </div>
-    <div class="popup" v-if="popup.active == true">
-      <div class="popup-background popup-close" @click="popup.active = !popup.active"></div>
+  <div class="background">
+    <img :src="background.url" :key="background.key" />
+  </div>
+  <nav>
+    <ul>
+      <li class="logo">
+        <div>
+          <div class="title">
+            Valorant Bingo <span class="version">{{ version }}</span>
+          </div>
+          <span><a href="https://dopplercreative.com" target="_blank">By Doppler Creative</a></span>
+        </div>
+      </li>
+      <li><a class="popup-button" @click="popup.active = !popup.active">View options</a></li>
+      <li><a class="button" @click="loadOptions">Generate new card</a></li>
+    </ul>
+  </nav>
+  <div class="card" :key="card.key">
+    <label v-for="(option, index) of card.options" class="box" :style="{ animationDelay: (index * 25) + 'ms' }">
+      <input type="checkbox" :checked="option == 'Freebie'">
+      <span>{{ option }}</span>
+    </label>
+  </div>
+  <div class="popup" :class="{ active: popup.active == true }">
+    <div class="popup-background popup-close" @click="popup.active = !popup.active"></div>
+    <div class="content">
+      <h2>Options:</h2>
       <ul class="list">
         <li v-for="(option, index) of popup.options" class="box">
           {{ option }}
