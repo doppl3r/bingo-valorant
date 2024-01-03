@@ -12,16 +12,18 @@ class Game {
     return this.images.backgrounds[index];
   }
 
-  getNewOptions() {
-    var options = [...this.cards.options]; // Duplicate new array
-    options = options.sort(() => Math.random() - 0.5); // Shuffle options
-    return options.slice(0, 25);
+  getAllOptions() {
+    return this.cards.options;
   }
 
-  setFreeCard() {
-    var box = $('.card label:nth-of-type(13)');
-    box.click();
-    box.find('span').text("Freebie");
+  getNewOptions() {
+    var options = [...this.cards.options]; // Duplicate new array
+    var cols = 5; // Defined in CSS
+    var rows = 5;
+    options = options.sort(() => Math.random() - 0.5); // Shuffle options
+    options = options.slice(0, rows * cols); // Slice array to 25
+    options[(Math.floor(rows / 2) * cols) + Math.floor(cols / 2)] = 'Freebie'; // Set center to freebie
+    return options;
   }
 }
 
