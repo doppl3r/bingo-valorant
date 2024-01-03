@@ -1,34 +1,16 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+        <link rel="icon" type="image/x-icon" href="/img/icon32.png" />
+        <link rel="preload" href="/fonts/oswald-regular.woff2" as="font" type="font/woff2" crossorigin>
+        <link rel="preload" href="/fonts/oswald-regular.woff" as="font" type="font/woff" crossorigin>
         <title>Valorant Bingo</title>
-        <link rel="stylesheet" href="css/stylesheet.css?v=1.0.7" />
-        <link rel="icon" href="img/favicon.png" sizes="32x32" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-        <meta name="description" content="Play Valorant Bingo while you play Valorant">
-        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-        <meta http-equiv="Pragma" content="no-cache"/>
-        <meta http-equiv="Expires" content="0"/>
     </head>
     <body>
-        <nav>
-            <ul>
-                <li class="logo"><span>Valorant Bingo<a href="https://dopplercreative.com" target="_blank">By Doppler Creative</a></span></li>
-                <li><a href="#" class="popup-button">View options</a></li>
-                <li><a href="." class="button">Generate new card</a></li>
-            </ul>
-        </nav>
-        <div class="card"></div>
-        <div class="popup" style="display: none;"></div>
-        <script src="js/jquery-3.6.0.min.js"></script>
-        <script src="js/bingo.js?v=1.0.7"></script>
-        <!-- Google Tag Manager -->
-        <script>
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-N5M38NP');
-        </script>
-        <!-- End Google Tag Manager -->
+        <div id="app"></div>
+        <script type="module" src="/src/js/App.js"></script>
     </body>
 </html>

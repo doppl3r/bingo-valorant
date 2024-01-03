@@ -1,8 +1,71 @@
-*, *:before, *:after { box-sizing: border-box; /* transition: all 0.1s ease-in-out; */ }
-body { background-color: #0f1923; background-size: cover; background-position: center; backdrop-filter: blur(5px); user-select: none; margin: 0; padding: 0; font-family: 'oswald_regularregular', sans-serif; text-transform: uppercase; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); font-size: 3vmin; color: #fff; position: relative; overflow: hidden; }
-body:before { content: ''; width: 100%; height: 100%; left: 0; top: 0; background-color: rgba(15, 25, 35, 0.5); position: absolute; }
-body nav { height: 10vh; padding: 8px 8px 0px; position: relative; z-index: 1; }
-body nav ul { background-color: rgba(255, 255, 255, 0.1); display: flex; align-items: center; padding: 8px; margin: 0; height: 100%; list-style: none; }
+@import './fonts.scss';
+@import './animations.scss';
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  font-size: 100%;
+  outline: none !important;
+}
+
+html {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  font-family: 'oswald_regularregular', sans-serif;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-size: clamp(16px, 3vmin, 32px);
+  color: #fff;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  min-width: 640px; // 640px
+  min-height: 360px; // 360px
+
+  body {
+    font-family: inherit; // Resolve Chrome override
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    
+    .background {
+      background-color: #0f1923;
+      background-size: cover;
+      background-position: center;
+      backdrop-filter: blur(5px);
+
+      &:before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        background-color: rgba(15, 25, 35, 0.5);
+        position: absolute;
+      }
+    }
+
+    nav {
+      height: 10vh;
+      padding: 8px 8px 0px;
+      position: relative;
+      z-index: 1;
+
+      ul {
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        align-items: center;
+        padding: 8px;
+        margin: 0;
+        height: 100%;
+        list-style: none;
+      }
+    }
+  }
+}
+
 body nav ul li { height: 100%; display: inline-flex; align-items: center; }
 body nav ul li a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; padding: 0px 24px; height: 100%; }
 body nav ul li a.button { background-color: rgba(63, 199, 149, 0.4); border: 2px solid rgba(63, 199, 149, 1); }
@@ -24,16 +87,3 @@ body .popup ul li a { color: inherit; text-decoration: none; border-bottom: 2px 
 body .popup input[name="option"] { background-color: rgba(255, 255, 255, 0.1); border-color: transparent; color: #fff; padding: 16px; font-family: inherit; width: 75%; font-size: inherit; outline: none; text-transform: uppercase; }
 body .popup button[name="submit"] { background-color: rgba(63, 199, 149, 0.4); border: 2px solid rgba(63, 199, 149, 1); color: inherit; padding: 16px 0px; font-family: inherit; width: 25%; font-size: inherit;  outline: none; text-transform: uppercase; cursor: pointer; }
 body .popup button[name="submit"]:hover { background-color: rgba(63, 199, 149, 1); animation: highlightBorder 0.25s ease-in; animation-fill-mode: forwards; }
-
-/* Animations */
-@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
-@keyframes highlightBorder { 0% { border-color: rgba(255, 255, 255, 0.75); } 100% { border-color: rgba(255, 255, 255, 0); } }
-
-/* Font families */
-@font-face {
-    font-family: 'oswald_regularregular';
-    src: url('../fonts/oswald-regular.woff2') format('woff2'),
-         url('../fonts/oswald-regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}

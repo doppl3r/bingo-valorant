@@ -1,5 +1,5 @@
 {
-    "card": [
+    "options": [
         "Ace",
         "Ace with Classic",
         "Apologize for bad play",
@@ -119,19 +119,5 @@
         "Win pistol round",
         "Win attack without planting",
         "Whole team over-rotates"
-    ],
-    "background": [
-        "background.jpg",
-        "1085886.jpg",
-        "1125084.jpg",
-        "1135158.jpg",
-        "1080942.jpg",
-        "1102034.jpg",
-        "1072679.jpg",
-        "1080939.jpg",
-        "1080940.jpg",
-        "1080938.jpg",
-        "1126549.jpg",
-        "1078458.jpg"
     ]
 }
