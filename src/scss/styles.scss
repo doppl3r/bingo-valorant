@@ -36,15 +36,12 @@ html {
     margin: 0;
     
     .background {
-      background-color: #0f1923;
-      background-size: cover;
-      background-position: center;
-      backdrop-filter: blur(0.25rem);
       position: absolute;
       left: 0;
       top: 0;
       width: 100vw;
       height: 100vh;
+      z-index: 0;
 
       &:before {
         content: '';
@@ -60,6 +57,7 @@ html {
       img {
         animation: fadeIn 1s ease-in-out;
         animation-fill-mode: forwards;
+        filter: blur(5px);
         object-fit: cover;
         width: inherit;
         height: inherit;
