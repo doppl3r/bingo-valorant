@@ -6,17 +6,21 @@
   // Initialize game
   var version = ref('');
   var game = window.game = new Game();
-  var background = ref({ key: 0, url: '' });
+  var background = ref({ loaded: false, url: '' });
   var card = ref({ key: 0, options: [] });
   var popup = ref({ active: false, options: [] })
 
   function loadOptions() {
     // Update refs from game values
     background.value.url = './img/' + game.getRandomBackground();
-    background.value.key++; // Force Vue refresh
+    background.value.loaded = false;
     card.value.options = game.getNewOptions();
     card.value.key++; // Force Vue refresh
     popup.value.options = game.getAllOptions();
+  }
+
+  function updateBackgroundStatus(e) {
+    background.value.loaded = true;
   }
 
   onMounted(async function() {
@@ -30,7 +34,7 @@
 
 <template>
   <div class="background">
-    <img :src="background.url" :key="background.key" />
+    <img :src="background.url" v-show="background.loaded" v-on:load="updateBackgroundStatus" />
   </div>
   <nav>
     <ul>
