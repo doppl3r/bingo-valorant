@@ -1,5 +1,5 @@
 <script setup>
-  import '../scss/style.scss';
+  import '../scss/styles.scss';
   import { Game } from '../js/Game.js';
   import { ref, onMounted } from 'vue';
 
@@ -59,12 +59,12 @@
   <div class="popup" :class="{ active: popup.active == true }">
     <div class="popup-background popup-close" @click="popup.active = !popup.active"></div>
     <div class="content">
-      <h2>Options:</h2>
-      <ul class="list">
+      <h2>Card Options</h2>
+      <ol class="list">
         <li v-for="(option, index) of popup.options" class="box">
           {{ option }}
         </li>
-      </ul>
+      </ol>
     </div>
   </div>
 </template>

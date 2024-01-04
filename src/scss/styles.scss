@@ -1,3 +1,4 @@
+@import './variables.scss';
 @import './fonts.scss';
 @import './animations.scss';
 
@@ -13,9 +14,10 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'oswald_regularregular', sans-serif;
-  text-transform: uppercase;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   font-size: clamp(16px, 3vmin, 32px);
+  line-height: clamp(16px, 3vmin, 32px);
+  text-transform: uppercase;
+  text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.5);
   color: #fff;
   position: relative;
   width: 100%;
@@ -37,7 +39,7 @@ html {
       background-color: #0f1923;
       background-size: cover;
       background-position: center;
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(0.25rem);
       position: absolute;
       left: 0;
       top: 0;
@@ -69,7 +71,7 @@ html {
 
     nav {
       height: 10vh;
-      padding: 8px 8px 0px;
+      padding: 0.5rem 0.5rem 0rem;
       position: relative;
       z-index: 1;
 
@@ -77,7 +79,7 @@ html {
         background-color: rgba(255, 255, 255, 0.1);
         display: flex;
         align-items: center;
-        padding: 8px;
+        padding: 0.5rem;
         margin: 0;
         height: 100%;
         list-style: none;
@@ -93,17 +95,17 @@ html {
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            padding: 0px 24px; height: 100%;
+            padding: 0rem 1.5rem; height: 100%;
 
             &.button {
-              background-color: rgba(63, 199, 149, 0.4);
-              border: 2px solid rgba(63, 199, 149, 1);
+              background-color: rgba($color-primary, 0.4);
+              border: 0.125rem solid rgba($color-primary, 1);
               padding-bottom: 0.5rem;
               padding-top: 0.5rem;
               text-align: center;
 
               &:hover {
-                background-color: rgba(63, 199, 149, 1);
+                background-color: rgba($color-primary, 1);
                 animation: highlightBorder 0.25s ease-in;
                 animation-fill-mode: forwards;
               }
@@ -113,26 +115,32 @@ html {
           &.logo {
             align-items: center;
             display: inline-flex;
-            margin: 0px auto 0px 0px;
+            margin: 0rem auto 0rem 0rem;
             flex-wrap: wrap;
-
+            
             .title {
               display: flex;
+              position: relative;
               width: 100%;
+
+              .version {
+                animation: fadeUp 0.5s ease-in-out;
+                animation-fill-mode: forwards;
+                font-size: 0.5rem;
+                padding: 0rem 0.125rem;
+                position: absolute;
+                left: calc(100% + 0.125rem);
+                top: -0.125rem;
+              }
             }
 
-            .version {
-              animation: fadeUp 0.5s ease-in-out;
-              animation-fill-mode: forwards;
-              font-size: 0.5rem;
-            }
 
             a {
               display: block;
               font-size: 0.6rem;
               letter-spacing: 0.125em;
               height: initial;
-              padding: 0px;
+              padding: 0rem;
             }
           }
         }
@@ -145,14 +153,14 @@ html {
       height: 90vh;
       width: 100vw;
       overflow: hidden;
-      padding: 4px;
+      padding: 0.25rem;
 
       .box {
         animation: fadeUp 0.5s ease-in-out;
         animation-fill-mode: forwards;
         opacity: 0;
         width: 20%;
-        padding: 4px;
+        padding: 0.25rem;
         position: relative;
 
         input {
@@ -160,11 +168,11 @@ html {
           opacity: 0;
 
           &:checked ~ span {
-            background-color: rgba(63, 199, 149, 0.4);
-            border-color: rgba(63, 199, 149, 1);
+            background-color: rgba($color-primary, 0.4);
+            border-color: rgba($color-primary, 1);
 
             &:hover {
-              background-color: rgba(63, 199, 149, 1);
+              background-color: rgba($color-primary, 1);
               animation: highlightBorder 0.25s ease-in;
               animation-fill-mode: forwards;
             }
@@ -173,21 +181,21 @@ html {
 
         span {
           background-color: rgba(255, 255, 255, 0.1);
-          border: 2px solid transparent;
+          border: 0.125rem solid transparent;
           cursor: pointer;
           position: absolute;
-          left: 4px;
-          top: 4px;
-          width: calc(100% - 8px);
-          height: calc(100% - 8px);
+          left: 0.25rem;
+          top: 0.25rem;
+          width: calc(100% - 0.5rem);
+          height: calc(100% - 0.5rem);
           display: flex;
           justify-content: center;
           align-items: center;
-          padding: 8px;
+          padding: 0.5rem;
           text-align: center;
 
           &:hover {
-            background-color: rgba(63, 199, 149, 1);
+            background-color: rgba($color-primary, 1);
             animation: highlightBorder 0.25s ease-in;
             animation-fill-mode: forwards;
           }
@@ -242,7 +250,7 @@ html {
         display: inline-block;
         height: 75vh;
         overflow-y: scroll;
-        padding: 32px;
+        padding: 2rem;
         position: relative;
         z-index: 1;
 
@@ -251,16 +259,15 @@ html {
           margin: 0;
         }
 
-        ul {
+        ol {
           text-decoration: none;
-          list-style: none;
-          padding: 0;
+          padding: 0rem 0rem 0rem auto;
   
           li {
             a {
               color: inherit;
               text-decoration: none;
-              border-bottom: 2px dashed #fff;
+              border-bottom: 0.125rem dashed #fff;
             }
           }
         }
@@ -272,7 +279,7 @@ html {
           background-color: rgba(255, 255, 255, 0.1);
           border-color: transparent;
           color: #fff;
-          padding: 16px;
+          padding: 1rem;
           font-family: inherit;
           width: 75%; font-size: inherit; outline: none; text-transform: uppercase;
         }
@@ -280,10 +287,10 @@ html {
 
       button {
         &[name="submit"] {
-          background-color: rgba(63, 199, 149, 0.4);
-          border: 2px solid rgba(63, 199, 149, 1);
+          background-color: rgba($color-primary, 0.4);
+          border: 0.125rem solid rgba($color-primary, 1);
           color: inherit;
-          padding: 16px 0px;
+          padding: 1rem 0rem;
           font-family: inherit;
           width: 25%;
           font-size: inherit;
@@ -292,7 +299,7 @@ html {
           cursor: pointer;
   
           &:hover {
-            background-color: rgba(63, 199, 149, 1);
+            background-color: rgba($color-primary, 1);
             animation: highlightBorder 0.25s ease-in;
             animation-fill-mode: forwards;
           }
