@@ -46,8 +46,12 @@
           <span><a href="https://dopplercreative.com" target="_blank">By Doppler Creative</a></span>
         </div>
       </li>
-      <li><a class="popup-button" @click="popup.active = !popup.active">View options</a></li>
-      <li><a class="button" @click="loadOptions">Generate new card</a></li>
+      <li class="options">
+        <a class="popup-button" @click="popup.active = !popup.active">View options</a>
+      </li>
+      <li class="generate">
+        <a class="button" @click="loadOptions">Generate new card</a>
+      </li>
     </ul>
   </nav>
   <div class="card" :key="card.key">

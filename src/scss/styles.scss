@@ -14,8 +14,8 @@ html {
   margin: 0;
   padding: 0;
   font-family: 'oswald_regularregular', sans-serif;
-  font-size: clamp(16px, 3vmin, 32px);
-  line-height: clamp(16px, 3vmin, 32px);
+  font-size: clamp(16px, 3.5vmin, 32px);
+  line-height: clamp(16px, 3.5vmin, 32px);
   text-transform: uppercase;
   text-shadow: 0.0625rem 0.0625rem 0.125rem rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -71,6 +71,7 @@ html {
 
     nav {
       height: 10vh;
+      height: 10dvh;
       padding: 0.25rem 0.25rem 0rem;
       position: relative;
       z-index: 1;
@@ -92,10 +93,13 @@ html {
           a {
             color: inherit;
             cursor: pointer;
+            text-align: center;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             padding: 0rem 1.5rem; height: 100%;
+            width: 100%;
 
             &.button {
               background-color: rgba($color-primary, 0.4);
@@ -112,11 +116,21 @@ html {
             }
           }
 
+          &.options {
+            @media (max-width: 480px) {
+              display: none;
+            }
+          }
+
           &.logo {
             align-items: center;
             display: inline-flex;
             margin: 0rem auto 0rem 0rem;
             flex-wrap: wrap;
+
+            @media (max-width: 480px) {
+              display: none;
+            }
             
             .title {
               display: flex;
@@ -143,6 +157,13 @@ html {
               padding: 0rem;
             }
           }
+
+          &.generate {
+            @media (max-width: 480px) {
+              display: flex;
+              flex-grow: 1;
+            }
+          }
         }
       }
     }
@@ -151,6 +172,7 @@ html {
       display: flex;
       flex-wrap: wrap;
       height: 90vh;
+      height: 90dvh;
       width: 100vw;
       overflow: hidden;
       padding: 0.125rem;
